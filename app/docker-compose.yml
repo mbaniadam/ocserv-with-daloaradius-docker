@@ -28,12 +28,12 @@ services:
     volumes:
       - "./radius-mysql:/var/lib/mysql"
   ocserv:
-    image: tommylau/ocserv:0.12.1
+    build: .
     container_name: ocserv
     restart: always
     privileged: true
     ports:
       - 443:443
-    volumes:
-      - ./ocserv.conf:/etc/ocserv/ocserv.conf
+    #volumes:
+    #  - ./ocserv.conf:/etc/ocserv/ocserv.conf
 
