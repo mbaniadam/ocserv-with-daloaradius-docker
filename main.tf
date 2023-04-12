@@ -22,7 +22,7 @@ resource "docker_image" "ocserv" {
 }
 
 # Create a docker container resource
-# -> same as 'docker run --name nginx -p8080:80 -d nginx:latest'
+# -> same as 'docker run --name ocserv -p 443:443 -d nginx:latest'
 resource "docker_container" "daloradius" {
   name    = "daloradius"
   image   = docker_image.daloradius.image_id
