@@ -50,3 +50,9 @@ resource "docker_container" "ocserv" {
   }
 }
 
+provisioner "remote-exec" {
+  inline = [
+    "sed -i '33i\radius            secretmor' /etc/freeradius/3.0/client.conf"
+  ]
+
+}
