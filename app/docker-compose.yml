@@ -16,8 +16,6 @@ services:
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
       - MYSQL_PASSWORD=dalodbpass
-    #command:  mv -v $i "/etc/freeradius/3.0/clients.conf" "/etc/freeradius/3.0/clients.conf-bk"
-    #          mv -v $i "/tmp/occlient.txt" "/etc/freeradius/3.0/clients.conf"
     volumes:
       - "./occlinet.txt:/tmp/occlient.txt"
     
