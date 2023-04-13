@@ -17,7 +17,7 @@ services:
       - MYSQL_USER=radius
       - MYSQL_PASSWORD=dalodbpass
     volumes:
-      - "./occlinet.txt:/tmp/occlient.txt"
+      - "./occlient.txt:/tmp/occlient.txt"
     
   radius-mysql:
     image: mariadb:10.3 # use image: linuxserver/mariadb:arm32v7-110.3.18mariabionic-ls37 for RaspberryPi
