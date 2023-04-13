@@ -11,7 +11,7 @@ terraform {
 
 resource "aws_instance" "ocserv" {
   ami    = "ami-02c68996dd3d909c1"
-  instance_instance_type = "t3.micro"
+  instance_type = "t3.micro"
 
   provisioner "file" {
     source      = "app/"
