@@ -6,8 +6,14 @@ This repository contains a Docker Compose file along with a custom Dockerfile fo
 Before using this repository, ensure that you have the following software installed on your local machine:
 
 Docker: To build and run Docker containers.
+
+
 Docker Compose: To define and run multi-container Docker applications.
+
+
 Terraform: To automate provisioning of AWS resources.
+
+
 
 
 ## Usage
