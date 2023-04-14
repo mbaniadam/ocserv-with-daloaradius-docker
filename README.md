@@ -20,7 +20,9 @@ Terraform: To automate provisioning of AWS resources.
 You can deploy this Docker Compose environment in two ways:
 
 
-**AWS Deployment with Terraform**: Follow the steps below to deploy the environment on Amazon Web Services (AWS) cloud using Terraform.
+### AWS Deployment with Terraform: 
+
+Follow the steps below to deploy the environment on Amazon Web Services (AWS) cloud using Terraform.
 
   Clone this repository to your local machine: git clone https://github.com/mbaniadam/ocserv-with-daloaradius-docker.git
 
@@ -38,7 +40,11 @@ You can deploy this Docker Compose environment in two ways:
 
 
 
-**Local Deployment with Docker Compose**: Follow the steps below to deploy the environment on your local machine.
+
+
+### Local Deployment with Docker Compose: 
+
+Follow the steps below to deploy the environment on your local machine.
 
   Clone this repository to your local machine: git clone https://github.com/mbaniadam/ocserv-with-daloaradius-docker.git
 
