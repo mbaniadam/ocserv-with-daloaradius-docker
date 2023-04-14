@@ -56,7 +56,7 @@ Follow the steps below to deploy the environment on your local machine.
 
   Build and start the Docker containers: docker-compose up -d
 
-  Access the Daloradius GUI in your web browser by navigating to http://localhost:80 or http://<DOCKER-HOST-IP>:80.
+  Access the Daloradius GUI in your web browser by navigating to http://localhost:80 or http://YOUR-DOCKER-HOST-IP:80.
 
 
   ***Note***: Make sure to customize the settings in the docker-compose.yml file and the Terraform configuration files (main.tf, variables.tf, etc.) according to your requirements before deploying the environment.
