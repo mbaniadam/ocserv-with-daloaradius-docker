@@ -1,7 +1,11 @@
 version: "3"
 services:
   radius:
-    image: frauhottelmann/daloradius-docker:1.2 #you need to change the tag to your arch and the desired version
+    build: 
+      context: .
+      args:
+        - NOED_ENV=local
+      dockerfile: Dockerfile_radius
     container_name: radius
     restart: always
     depends_on:

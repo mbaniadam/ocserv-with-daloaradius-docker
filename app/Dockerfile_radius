@@ -1,0 +1,7 @@
+FROM frauhottelmann/daloradius-docker:1.2
+RUN echo "#ocsrv radius client" >> /etc/freeradius/3.0/clients.conf
+RUN echo "client ocserv {" >> /etc/freeradius/3.0/clients.conf
+RUN echo "        ipaddr          = ocserv" >> /etc/freeradius/3.0/clients.conf
+RUN echo "        secret          = secretmor" >> /etc/freeradius/3.0/clients.conf
+RUN echo "}" >> /etc/freeradius/3.0/clients.conf
+
