@@ -30,9 +30,11 @@ resource "aws_instance" "ocserv" {
 
   provisioner "remote-exec" {
     inline = [
-        "apt-get update && apt install docker.io docker-compose -y"
-        "cd /app",
-        "docker-compose up -d",
+        "sudo rm /var/lib/dpkg/lock",
+        "sudo dpkg --configure -a",
+        "sudo apt-get update && sudo apt install docker.io docker-compose -y",
+        "cd /tmp/app",
+        "sudo docker-compose up -d",
     ]
     connection {
       type     = "ssh"
