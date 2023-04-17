@@ -31,3 +31,4 @@ override.tf.json
 .terraform/
 key1.pem
 accesskey.txt
+private_key/

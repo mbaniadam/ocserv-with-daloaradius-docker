@@ -12,7 +12,7 @@ terraform {
 resource "aws_instance" "ocserv" {
   ami    = "ami-02c68996dd3d909c1"
   instance_type = "t3.micro"
-  key_name = "key1"
+  key_name = "key"
   vpc_security_group_ids = [resource.aws_security_group.webSG.id]
   
 
@@ -23,7 +23,7 @@ resource "aws_instance" "ocserv" {
       type     = "ssh"
       user     = "admin"
       host     = "${self.public_ip}"
-      private_key = file("private_key/key1.pem")
+      private_key = file("private_key/key.pem")
 
     }
   }
@@ -39,7 +39,7 @@ resource "aws_instance" "ocserv" {
 
 # we must set security group
 resource "aws_security_group" "webSG" {
-  name        = "webSG"
+  name        = "Allow SSH and Web"
   description = "Allow ssh  inbound traffic"
   ingress {
     from_port   = 22
@@ -62,6 +62,12 @@ resource "aws_security_group" "webSG" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 1
+    to_port     = 8
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   egress {
     from_port       = 0
     to_port         = 0
