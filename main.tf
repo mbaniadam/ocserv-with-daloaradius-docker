@@ -15,17 +15,24 @@ resource "aws_instance" "ocserv" {
   key_name = "key"
   vpc_security_group_ids = [resource.aws_security_group.webSG.id]
   
+  connection {
+    type     = "ssh"
+    user     = "admin"
+    host     = "${self.public_ip}"
+    private_key = file("private_key/key.pem")
+  }
+
+# When using the ssh connection type the destination directory must already exist.
+  provisioner "remote-exec" { 
+    inline = [
+      "mkdir /tmp/app",
+      "chmod 777 /tmp/app"
+    ]
+  }
 
   provisioner "file" {
     source      = "app/"
     destination = "/tmp/app"
-    connection {
-      type     = "ssh"
-      user     = "admin"
-      host     = "${self.public_ip}"
-      private_key = file("private_key/key.pem")
-
-    }
   }
 
   provisioner "remote-exec" {
@@ -36,13 +43,6 @@ resource "aws_instance" "ocserv" {
         "cd /tmp/app",
         "sudo docker-compose up -d",
     ]
-    connection {
-      type     = "ssh"
-      user     = "admin"
-      host     = "${self.public_ip}"
-      private_key = file("private_key/key.pem")
-
-    }
   }
 }
 
