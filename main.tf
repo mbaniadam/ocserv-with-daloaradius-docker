@@ -18,7 +18,7 @@ resource "aws_instance" "ocserv" {
 
   provisioner "file" {
     source      = "app/"
-    destination = "/app"
+    destination = "/tmp/app"
     connection {
       type     = "ssh"
       user     = "admin"
@@ -30,10 +30,17 @@ resource "aws_instance" "ocserv" {
 
   provisioner "remote-exec" {
     inline = [
+        "apt-get update && apt install docker.io docker-compose -y"
         "cd /app",
         "docker-compose up -d",
     ]
+    connection {
+      type     = "ssh"
+      user     = "admin"
+      host     = "${self.public_ip}"
+      private_key = file("private_key/key.pem")
 
+    }
   }
 }
 
